@@ -13,7 +13,7 @@ import java.util.ListIterator;
  */
 public class Bucket implements HashTable {
 
-    private static int bucket_size = 50;
+    private static int bucket_size = 10;
     LinkedList<KeyValuePair> lst = new LinkedList<KeyValuePair>();
     ListIterator<KeyValuePair> itr;
     int upper_boundary, lower_boundary;
@@ -70,7 +70,7 @@ public class Bucket implements HashTable {
             values.add(itr.next().value);
         }
         
-        return (String[]) values.toArray();
+        return values.toArray(new String[0]);
     }
 
     @Override
@@ -81,5 +81,17 @@ public class Bucket implements HashTable {
     @Override
     public boolean isEmpty() {
         return lst.isEmpty();
+    }
+    
+    public boolean containsKey(int key) {
+        for (itr = lst.listIterator(); itr.hasNext();) {
+            if (itr.next().key == key)
+                return true;
+        }
+        return false;
+    }
+    
+    public void removeKey(int key) {
+        lst.removeAll(getKeyValuePairs(key));
     }
 }

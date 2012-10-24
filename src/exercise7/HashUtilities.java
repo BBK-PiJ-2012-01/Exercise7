@@ -5,7 +5,9 @@
 
 package exercise7;
 
+import BBK.PiJ01.common.BadInput;
 import BBK.PiJ01.common.Exercise;
+import BBK.PiJ01.common.IOGeneric;
 
 /**
  *
@@ -30,7 +32,13 @@ public class HashUtilities implements Exercise {
     public void run() {
         // Copied verbatim from exercise.
         System.out.println("Give me a string and I will calculate its hash code"); 
-        String str = System.console().readLine();
+        String str;
+        try {
+            str = IOGeneric.getString();
+        } catch (BadInput err) {
+            System.out.println("Couldn't understand input.");
+            return;
+        }
         int hash = str.hashCode();
         int smallHash = HashUtilities.shortHash(hash); 
         System.out.println("0 < " + smallHash + " < 1000");

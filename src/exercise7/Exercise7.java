@@ -22,6 +22,7 @@ public class Exercise7 {
         ArrayList<Exercise> exercises = new ArrayList<Exercise>();
         exercises.add(new SupermarketQueueExercise());
         exercises.add(new HashUtilities());
+        exercises.add(new HashTableExercise());
         
         ExerciseChooser ech = new ExerciseChooser(exercises);
         ech.run();
