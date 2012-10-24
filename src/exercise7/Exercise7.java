@@ -20,7 +20,7 @@ public class Exercise7 {
      */
     public static void main(String[] args) throws BadInput {
         ArrayList<Exercise> exercises = new ArrayList<Exercise>();
-        
+        exercises.add(new SupermarketQueueExercise());
         
         ExerciseChooser ech = new ExerciseChooser(exercises);
         ech.run();

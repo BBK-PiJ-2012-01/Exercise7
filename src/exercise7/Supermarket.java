@@ -7,8 +7,8 @@ package exercise7;
 
 
 public class Supermarket implements PersonQueue {
-    Person first;
-    Person last;
+    private Person first;
+    private Person last;
     
     @Override
     public void insert(Person person) {
@@ -24,10 +24,19 @@ public class Supermarket implements PersonQueue {
     @Override
     public Person retrieve() {
         Person retrieved = first;
-        first = first.getNext();
-        if (first == null)
+        
+        try {
+            first = first.getNext();
+        } catch (NullPointerException err) {
             last = null;
+        }
+        
         return retrieved;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Simple one-way linked list queue";
     }
 
 }

@@ -17,6 +17,13 @@ public interface PersonQueue {
     /**
     * Removes a person from the queue. */
     Person retrieve();
+    
+    
+    /**
+     * Gets a description of the implementation.
+     * @return 
+     */
+    String getDescription();
 }
 
 

@@ -13,6 +13,10 @@ public class Person {
     private int age;
     Person next;
     
+    public Person(int age) {
+        this.age = age;
+    }
+    
     public int getAge() {
         return age;
     }
@@ -27,5 +31,9 @@ public class Person {
     
     public Person getNext() {
         return next;
+    }
+    
+    public String toString() {
+        return "Person with age = " + age;
     }
 }
